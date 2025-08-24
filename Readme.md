@@ -75,7 +75,7 @@ First, flaws. The biggest flaw is that I don't know how to code js and html at a
 
 I am grateful to developers of these two custom visualizations, as well as the developers of *ActivityWatch*.
 
-The second flaw is about the visualization itself. It provides a truncated view and I don't really know how to fix it. I think the same problem also exists in three other officially documented custom visualizations. Gemini says that this problem can't possibly be resolved unless *ActivityWatcher* changes the source code of its web UI, because the UI now places the custom visualization in an `<iframe>` container with a fixed size (which is a lot smaller than all other visualizations).
+The second flaw is about the visualization itself. It provides a truncated view and I don't really know how to fix it. I think this problem is also present in three other officially documented custom visualizations. Gemini says that this problem can't possibly be resolved unless *ActivityWatcher* changes the source code of its web UI, because the UI now places the custom visualization in an `<iframe>` container with a fixed size (which is a lot smaller than all other visualizations).
 
 To overcome this problem, my (in fact Gemini's) visualization provides a scrollbar that you can scroll to check more data. You can also click on the legend to enable/disable the display of either keypresses or clicks, depending on which you care about more:
 
@@ -86,5 +86,6 @@ I hope this documentation gives you the information you need.
 # Licensing
 
 This repository’s visualization code `index.html` is AI-generated and licensed under MIT (see `LICENSE.txt`). `bundle.js` is a modified from the respective file provided by [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input), which is licensed under the Mozilla Public License 2.0 (see `LICENSE-MPL.txt`).
+
 
 
