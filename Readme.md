@@ -21,11 +21,11 @@ However, I really have no idea about builds and all that stuff. I am just an ord
 I will assume that you downloaded *ActivityWatch* with the official installer, which is how people normally download every software. If you didn't, I'll assume that you are smart enough to check whether the watcher *aw-watcher-input* has been downloaded properly, and will be able to follow the instructions from [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input) in case it hasn't been properly downloaded. I will also assume that you use Windows. If you use Mac or some other system, let's just hope what I describe below still works.
 
 ## Step 1
-Go to the folder where *ActivityWatch* was installed (where the application `aw-qt.exe` is located). By default it would be `C:\Program Files (x86)\ActivityWatch` or somewhere similar, though for me it is `D:\Softwares\ActivityWatch` because I used custom installation.
+Go to the folder where *ActivityWatch* is installed (where the application `aw-qt.exe` is located). By default it would be `C:\Program Files (x86)\ActivityWatch` or somewhere similar, though for me it is `D:\Softwares\ActivityWatch` because I used custom installation.
 
 Inside the `something\...\something\ActivityWatch` folder, you should find a folder called `aw-watcher-input`. I think this now comes with the official installer by default, so building it manually is no longer a must (I mention this because [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input) seems to teach you how to build it manually, but that's likely unnecessary for most ordinary users.).
 
-Now download the `visualization` folder I uploaded. Paste it directly into the `aw-watcher-input` folder on your computer. These were built by Powershell and I had a lot of problems building it, so I thought that uploading it directly might be a good (though less professional) idea.
+Now download the `visualization` folder I uploaded. Paste it directly into the `aw-watcher-input` folder on your computer. Stuff in this folder were built using Powershell and I encountered a lot of problems during this process, so I thought that uploading the entire folder directly might be a good (though less professional) idea.
 
 ## Step 2
 Go to the [config directory](https://docs.activitywatch.net/en/latest/directories.html#config). For me the config directory is `%LocalAppData%\activitywatch\activitywatch`. 
@@ -84,4 +84,5 @@ To overcome this problem, my (in fact Gemini's) visualization provides a scrollb
 I hope this documentation gives you the information you need.
 
 # Licensing
+
 This repository’s visualization code `index.html` is AI-generated and licensed under MIT (see `LICENSE.txt`). `bundle.js` is a modified from the respective file provided by [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input), which is licensed under the Mozilla Public License 2.0 (see `LICENSE-MPL.txt`).
