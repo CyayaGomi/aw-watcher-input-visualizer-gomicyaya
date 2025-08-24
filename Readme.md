@@ -13,10 +13,10 @@ Its effect should look like this:
 
 # How to Make it Work
 ## One-sentence Summary
-For those who are apt at coding, here's a one-sentence summary: copy the `visualization` folder I uploaded to `.\ActivityWatch\aw-watcher-input`, then follow the instructions from [aw-watcher-utilization](https://github.com/Alwinator/aw-watcher-utilization) to set the custom visualization. But make sure you've already installed *aw-watcher-input* otherwise the visualization will not work.
+For those who are apt at coding, here's a one-sentence summary: copy the `visualization` folder I uploaded to `.\ActivityWatch\aw-watcher-input`, then follow the instructions from [aw-watcher-utilization](https://github.com/Alwinator/aw-watcher-utilization) to set the custom visualization. But make sure you've already installed *aw-watcher-input* otherwise the visualization will not work. **If you understand this one-sentence summary, you can jump straight to the 'Functions and Flaws' section.**
 
 ## Prerequisites
-However, I really have no idea about builds and all that stuff. I am just an ordinary guy who's looking for a tool that records what I do throughout the day, especially how many keypresses I make. Therefore I will teach you how to make this visualization work in the most unprofessional and stupid way.
+I really have no idea about builds and all that stuff. I am just an ordinary guy who's looking for a tool that records what I do throughout the day, especially how many keypresses I make. Therefore I will teach you how to make this visualization work in the most unprofessional and stupid way.
 
 I will assume that you downloaded *ActivityWatch* with the official installer, which is how people normally download every software. If you didn't, I'll assume that you are smart enough to check whether the watcher *aw-watcher-input* has been downloaded properly, and will be able to follow the instructions from [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input) in case it hasn't been properly downloaded. I will also assume that you use Windows. If you use Mac or some other system, let's just hope what I describe below still works.
 
@@ -86,3 +86,4 @@ I hope this documentation gives you the information you need.
 # Licensing
 
 This repository’s visualization code `index.html` is AI-generated and licensed under MIT (see `LICENSE.txt`). `bundle.js` is a modified from the respective file provided by [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input), which is licensed under the Mozilla Public License 2.0 (see `LICENSE-MPL.txt`).
+
