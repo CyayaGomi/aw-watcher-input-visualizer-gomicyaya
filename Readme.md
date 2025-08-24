@@ -13,7 +13,7 @@ Its effect should look like this:
 
 # How to Make it Work
 ## One-sentence Summary
-For those who are apt at coding, here's a one-sentence summary: copy the `visualization` folder I uploaded to `.\ActivityWatch\aw-watcher-input`, then follow the instructions from [aw-watcher-utilization](https://github.com/Alwinator/aw-watcher-utilization) to set the custom visualization. But make sure you've already installed *aw-watcher-input* otherwise the visualization will not work. **If you understand this one-sentence summary, you can jump straight to the 'Functions and Flaws' section.**
+For those who are apt at coding, here's a one-sentence summary: copy the `visualization` folder I uploaded to `.\ActivityWatch\aw-watcher-input`, then follow the instructions from [aw-watcher-utilization](https://github.com/Alwinator/aw-watcher-utilization) to set the custom visualization. But make sure you've already installed *aw-watcher-input* otherwise the visualization will not work. **If you understand this one-sentence summary, you can jump straight to the *Functions and Flaws* section.**
 
 ## Prerequisites
 I really have no idea about builds and all that stuff. I am just an ordinary guy who's looking for a tool that records what I do throughout the day, especially how many keypresses I make. Therefore I will teach you how to make this visualization work in the most unprofessional and stupid way.
@@ -66,10 +66,10 @@ Go to the dashboard. Again you can see 'Open Dashboard' if you right click on th
 
 Click 'Edit view', then 'Add visualization', then click the cogwheel and select 'Custom visualization'. This will open a popup asking for which visualization, here enter the word 'input' to make the watcher name 'aw-watcher-input' (I copied this bit directly from [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input)). It will also tell you to 'enter the visualization title', which you can just enter anything you want, it won't make much difference. 
 
-# Functions and Flaws
-First, flaws. 
+After you finish this step, a figure that looks like the one in the *Introduction* section should appear. If it doesn't, then recheck the steps mentioned above one by one for typos and other mistakes. If it still doesn't work you can raise an issue, but I can't guarantee I know how to solve it :(
 
-The biggest flaw is that I don't know how to code js and html at all, so my codes were written by Gemini. Therefore I don't think I can provide any help if anything goes wrong, my apologies. 
+# Functions and Flaws
+First, flaws. The biggest flaw is that I don't know how to code js and html at all, so my codes were written by Gemini. Therefore I don't think I can provide any help if anything goes wrong, my apologies. 
 
 `bundle.js` and `index.html` are the two files this custom visualization depends on. `bundle.js` was directly modified from the original version provided by [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input) (up to Aug 23, 2025), and one line of code was added to overpass the aggregation and provide timestamped data. `index.html` was completely written by Gemini, although it may have referenced the respective file from [aw-watcher-utilization](https://github.com/Alwinator/aw-watcher-utilization). You are free to replace them with the original files, stored in `./visualization/dist/original`.
 
@@ -86,4 +86,5 @@ I hope this documentation gives you the information you need.
 # Licensing
 
 This repository’s visualization code `index.html` is AI-generated and licensed under MIT (see `LICENSE.txt`). `bundle.js` is a modified from the respective file provided by [aw-watcher-input](https://github.com/ActivityWatch/aw-watcher-input), which is licensed under the Mozilla Public License 2.0 (see `LICENSE-MPL.txt`).
+
 
