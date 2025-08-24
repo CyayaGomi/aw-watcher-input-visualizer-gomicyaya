@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>aw-watcher-input Responsive Chart</title>
+    <style>
+        /* This CSS correctly makes the canvas fill its container */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            /* Height will be set dynamically by the script */
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container">
+        </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="bundle.js"></script>
+
+    <script defer>
+        function aggregateEvents(events, intervalMinutes = 6) {
+            const intervalMillis = intervalMinutes * 60 * 1000;
+            const buckets = new Map();
+            for (const event of events) {
+                const timestamp = new Date(event.timestamp).getTime();
+                const bucketStart = Math.floor(timestamp / intervalMillis) * intervalMillis;
+                if (!buckets.has(bucketStart)) {
+                    buckets.set(bucketStart, { presses: 0, clicks: 0 });
+                }
+                const currentBucket = buckets.get(bucketStart);
+                currentBucket.presses += event.data.presses;
+                currentBucket.clicks += event.data.clicks;
+            }
+            const aggregated = Array.from(buckets.entries()).map(([timestamp, data]) => ({
+                timestamp: new Date(timestamp),
+                data: data
+            }));
+            return aggregated.sort((a, b) => a.timestamp - b.timestamp);
+        }
+
+        if (window.aw) {
+            const aw_client = window.aw;
+            const urlParams = new URLSearchParams(window.location.search);
+            const hostname = urlParams.get('hostname');
+            const start = urlParams.get('start') || new Date(new Date().setHours(0, 0, 0, 0)).toISOString();
+            const end = urlParams.get('end') || new Date().toISOString();
+            const bucketId = `aw-watcher-input_${hostname}`;
+
+            aw_client.getEvents(bucketId, { start, end }).then((rawEvents) => {
+                const events = aggregateEvents(rawEvents, 6);
+                const labels = events.map(e => e.timestamp.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' }));
+                const pressesData = events.map(e => e.data.presses);
+                const clicksData = events.map(e => e.data.clicks);
+
+                // ★★★ THE NEW LOGIC IS HERE ★★★
+                // 1. Decide on a height for each bar in the chart (e.g., 35px).
+                const heightPerBar = 35; 
+                // 2. Calculate the total chart height based on the amount of data. Add some padding.
+                const totalChartHeight = (events.length * heightPerBar) + 50; // +50 for axis labels etc.
+                
+                const container = document.querySelector('.chart-container');
+                
+                // 3. Set the container's height explicitly IN PIXELS before drawing the chart.
+                container.style.height = `${totalChartHeight}px`;
+
+                const ctx = document.createElement('canvas');
+                container.appendChild(ctx);
+                
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Keypresses (per 6 min)',
+                        data: pressesData,
+                        backgroundColor: 'rgba(54, 162, 235, 0.6)'
+                    }, {
+                        label: 'Clicks (per 6 min)',
+                        data: clicksData,
+                        backgroundColor: 'rgba(255, 99, 132, 0.6)'
+                    }]
+                  },
+                  options: {
+                        indexAxis: 'y', // Optional: Makes a horizontal bar chart which often looks better with this sizing
+                        scales: { x: { beginAtZero: true } },
+                        responsive: true,
+                        maintainAspectRatio: false, 
+                    }
+                });
+
+            }).catch((err) => {
+                document.body.innerText = `Error fetching data: ${err.message}.`;
+            });
+        }
+    </script>
+</body>
+</html>
